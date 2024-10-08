@@ -32,3 +32,8 @@ git clone git@github.com:denschwarz/XConeCluster.git
 
 - Change ```fastjet_dir``` in ```setup_binder.py``` to fastjet location in your system
 - Run ```python3 setup_binder.py build_ext --inplace```
+
+
+## Issues
+If a library cannot be found, try running this in bash (inserting the path to the fastjet libs)
+```export LD_LIBRARY_PATH=PATH-TO-FASTJET-LIB-DIR:$LD_LIBRARY_PATH```
