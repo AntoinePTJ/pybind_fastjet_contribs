@@ -1,9 +1,5 @@
 # Installation
 
-- change fastjet_dir in setup_binder.py to fastjet location
-- python3 setup_binder.py build_ext --inplace
-
-
 1. Install fastjet
 ```
 wget https://fastjet.fr/repo/fastjet-3.4.3.tar.gz
