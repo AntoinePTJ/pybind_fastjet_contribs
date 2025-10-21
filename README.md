@@ -1,10 +1,15 @@
-This repo is forked from https://github.com/denschwarz/XConeCluster with additional observables and installation with pip.
+This repo is forked from https://github.com/denschwarz/XConeCluster with additional functions and installation with pip.
+More functions can easily be added by editing fastjet_contribs.cpp before compiling.
 
 # Installation
 
-1. Install fastjet and fastjet contribs
+1. Define FastJet installation path
 ```
 FASTJET_PATH=/path/to/fastjet/
+```
+
+2. Install FastJet and FastJet contrib
+```
 wget https://fastjet.fr/repo/fastjet-3.5.1.tar.gz
 tar zxvf fastjet-3.5.1.tar.gz
 cd fastjet-3.5.1/
@@ -24,11 +29,8 @@ cd ..
 ```
 
 2. Setup and compile python wrapper
-
-- Activate the python environment in which you want to install fastjet_contribs
+- Activate the python environment in which to install fastjet_contribs
 - Change ```fastjet_dir``` in ```setup.py``` to $FASTJET_PATH.
-
-On Linux
 ```
 sed -i "7s|.*|fastjet_dir = '$FASTJET_PATH'|" setup.py
 ```
