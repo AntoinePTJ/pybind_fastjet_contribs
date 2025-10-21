@@ -18,3 +18,12 @@ for i, subjetsThisJet in enumerate(allsubjets):
     print(f"XCone fatjet {i} has {len(subjetsThisJet)} subjets")
     for j,jet in enumerate(subjetsThisJet):
         print(f"  - XCone subjet {j}: px={jet[0]}, py={jet[1]}, pz={jet[2]}, E={jet[3]}")
+
+# Compute N-subjettiness
+# It returns the N-subjettiness value tau_N for the jet given as a list of particles
+tau1 = fastjet_contribs.compute_nsubjettiness(particles, N=1, R0=1.0, beta=1.0, axis_mode=1)
+
+# Compute soft drop jet and symmetry
+# It returns the groomed jet and the soft drop symmetry as ((px, py, pz, E), zg)
+# zg = -1 if no splitting was found
+groomed_jet, z = fastjet_contribs.apply_soft_drop(particles, zcut=0.1, beta=0.0)
