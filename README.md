@@ -30,7 +30,7 @@ cd ..
 
 On Linux
 ```
-sed -i "7s|.*|fastjet_dir = $FASTJET_PATH|" setup.py
+sed -i "7s|.*|fastjet_dir = '$FASTJET_PATH'|" setup.py
 ```
 - Run ```pip install .```
 
