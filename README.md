@@ -3,9 +3,17 @@ More functions can easily be added by editing fastjet_contribs.cpp before compil
 
 # Installation
 
-1. Define FastJet installation path
+1. Define FastJet installation path in current directory
 ```
-FASTJET_PATH=/path/to/fastjet/
+mkdir fastjet
+cd fastjet
+mkdir fastjet-install
+export FASTJET_PATH=$PWD/fastjet-install
+```
+
+2. Clone this repo
+```
+git clone https://github.com/AntoinePTJ/pybind_fastjet_contribs.git
 ```
 
 2. Install FastJet and FastJet contrib
@@ -26,17 +34,14 @@ make install
 make fragile-shared
 make fragile-shared-install
 cd ..
+export LD_LIBRARY_PATH=$FASTJET_PATH/lib:$LD_LIBRARY_PATH
 ```
 
 2. Setup and compile python wrapper
 - Activate the python environment in which to install fastjet_contribs
-- Change ```fastjet_dir``` in ```setup.py``` to $FASTJET_PATH.
+- Go to ```pybind_fastjet_contribs```, set the path to the fastjet installation and install
 ```
+cd pybind_fastjet_contribs
 sed -i "7s|.*|fastjet_dir = '$FASTJET_PATH'|" setup.py
+pip install .
 ```
-- Run ```pip install .```
-
-
-## Issues
-If a library cannot be found, try running this in bash (inserting the path to the fastjet libs)
-```export LD_LIBRARY_PATH=$FASTJET_PATH/lib:$LD_LIBRARY_PATH```
